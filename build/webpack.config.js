@@ -1,8 +1,7 @@
 module.exports = {
-    entry: ['./script.js', './codePreview.js'],
+    entry: './script.js',
     output: {
-        path: '../../docs/js/',
-        filename: 'scripts.bundle.js'
+        filename: '../../docs/js/scripts.bundle.js'
     },
     module:{
     rules: [{

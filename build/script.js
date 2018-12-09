@@ -1,24 +1,12 @@
-const TextToSVG = require('text-to-svg');
 const ClipboardJS = require("clipboard");
 const anime = require('animejs');
 
-let fonts = ['SourceSansPro-Bold', 'Biryani-ExtraBold'];
-
-window.updatedValue = function() {
-    let userOptions = {
-        'font': fonts[1],
-        'fill': '#151515',
-        'stroke': '#667766',
-        'strokeWidth': 5,
-        'fontSize': 200
-    }
-    generate(document.getElementById('view__text-input').value, userOptions);
-}
+import { svggenerator } from './svgGenerator.js';
+import { codemirror } from './codePreview.js';
 
 window.onload = function(){
-    // test();
-    var clipboard = new ClipboardJS('.btn');
     updatedValue();
+    codemirror.initCodePreview('<!-- Generated code here -->', '//Generated code here');
 };
 
 function generatePastelColor(){
@@ -57,9 +45,9 @@ function displayPreview(full){
         generatedCode += e;
     });
     document.getElementById('view__text-preview').innerHTML = generatedCode;
-    // document.getElementById('code-preview__body').textContent = generatedCode;
     line();
-    previewCode();
+    codemirror.updateHTMLPreview(generatedCode, generatedCode);
+    codemirror.updateJSPreview(generatedCode, " ");
 }
 
 function line(){
