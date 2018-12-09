@@ -1,7 +1,16 @@
 module.exports = {
-    entry: './script.js',
+    entry: ['./script.js', './codePreview.js'],
     output: {
-        filename: '../../docs/js/scripts.bundle.js'
+        path: '../../docs/js/',
+        filename: 'scripts.bundle.js'
     },
+    module:{
+    rules: [{
+        test: /\.css$/,
+        use: [
+            { loader: "style-loader" },
+            { loader: "css-loader" }
+        ] 
+    }]},
     mode: 'development'
 };

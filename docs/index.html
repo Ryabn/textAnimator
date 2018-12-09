@@ -24,7 +24,14 @@
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     <body>
-        <div id="text-preview"></div>
-        <input type="text" placeholder="Enter here" id="user-input" onkeyup="updatedValue();">
+        <input id="view__text-input" type="text" onkeyup="updatedValue();">
+        <div id="view__text-preview"></div>
+        <div id="view__code-preview">
+            <code id="code-preview__body--html">
+            </code>
+            <code id="code-preview__body--js">
+            </code>
+            <textarea id="code"></textarea>
+        </div>
     </body>
 </html>
