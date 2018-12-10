@@ -1,31 +1,66 @@
 body, html{
     background-color: #151515;
+    color: #ffffff;
+    font-family: 'Montserrat';
+}
+.CodeMirror{
+    height: 100%;
+}
+.code-header{
+    background-color: white;
+    height: 100%;
+    text-align: center;
+    color: black;
+}
+.view{
+    position: fixed;
+}
+.view--left{
+    left: 2vh;
+    width: calc(25vw - 4vh);
+}
+.view--right{
+    left: 25vw;
+    width: calc(75vw - 2vh);
+}
+#view__text-input{
+    height: 6vh;
+    top: 13vh;
+    box-sizing: border-box;
+}
+#text-input__form{
+    box-sizing: border-box;
+    font-size: 4vh;
     color: white;
 }
+#view__dropdown-styles{
+    top: 23vh;
+    height: 42vh;
+    background-color: #ffffff;
+}
 #view__text-preview{
-    position: fixed;
-    top: 10vh;
-    left: 30vw;
-    height: 60vh;
-    width: 67vw;
+    top: 2vh;
+    height: 52vh;
     overflow-x: scroll;
     white-space: nowrap;
     text-align: center;
     background-color: black;
 }
 #view__code-preview{
-    position: fixed;
-    top: 75vh;
-    left: 30vw;
-    height: 5vh;
-    width: 67vw;
-    overflow-x: scroll;
-    white-space: nowrap;
-    background-color: white;
-    color: black;
-    
+    top: 56vh;
+    height: 42vh;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: 20px calc(42vh - 20px);
+    column-gap: 2vh;
 }
-#code-preview__body--html{
+#code-preview__html{
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
 }
-#code-preview__body--js{
+#code-preview__js{
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
 }

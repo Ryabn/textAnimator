@@ -10,6 +10,15 @@ module.exports = {
             { loader: "style-loader" },
             { loader: "css-loader" }
         ] 
+    },
+    {
+        test: /\.scss$/,
+        use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader"
+        ]
     }]},
-    mode: 'development'
+    mode: 'development',
+    'devtool': 'cheap-inline-module-source-map'
 };

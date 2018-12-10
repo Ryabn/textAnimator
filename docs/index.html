@@ -17,21 +17,26 @@
         </title>
 
         <!-- Default font style for site -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
         <!-- personal scripts -->
         <script src="./js/scripts.bundle.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     <body>
-        <input id="view__text-input" type="text" onkeyup="updatedValue();">
-        <div id="view__text-preview"></div>
-        <div id="view__code-preview">
-            <code id="code-preview__body--html">
-            </code>
-            <code id="code-preview__body--js">
-            </code>
-            <textarea id="code"></textarea>
+        <div id="view__text-input" class="view view--left input-field" onkeyup="update();">
+            <input id="text-input__form" type="text">
+            <label for="last_name" class="light-green-text text-accent-3">Animated Text</label>
+            </div>
+        <div id="view__dropdown-styles" class="view view--left">
+
+        </div>
+        <div id="view__text-preview" class="view view--right"></div>
+        <div id="view__code-preview" class="view view--right">
+            <div id="code-header__html" class="code-header">HTML</div>
+            <div id="code-header__js" class="code-header">JavaScript</div>
+            <div id="code-preview__html"></div>
+            <div id="code-preview__js"></div>
         </div>
     </body>
 </html>

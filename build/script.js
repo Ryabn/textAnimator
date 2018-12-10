@@ -1,53 +1,25 @@
-const ClipboardJS = require("clipboard");
 const anime = require('animejs');
+require('materialize-css');
+require('materialize-css/sass/materialize.scss');
 
 import { svggenerator } from './svgGenerator.js';
 import { codemirror } from './codePreview.js';
 
 window.onload = function(){
-    updatedValue();
-    codemirror.initCodePreview('<!-- Generated code here -->', '//Generated code here');
+    M.AutoInit();
+    codemirror.initCodePreview();
+    // svggenerator.generate(document.getElementById('view__text-input').value);
+    displayPreview(svggenerator.html);
 };
-
-function generatePastelColor(){
-    return `hsl( ${parseInt(Math.random()*360)}, 60%, 80%)`;
-}
-
-function generate(text, {font, fill, stroke, strokeWidth, fontSize}){
-    TextToSVG.load(`fonts/${font}.ttf`, function(err, textToSVG) {
-        let full = {};
-        for(let i = 0; i < text.length; i++){
-            let charColor = generatePastelColor();
-            const TTSattributes = {
-                // 'fill': charColor,
-                'fill': fill,
-                'stroke': charColor,
-                'stroke-width': strokeWidth,
-                'stroke-dasharray': 150,
-                'style' : 'stroke-dashoffset: 150px',
-            };
-            const TTSoptions = {
-                'x': 0, 
-                'y': 0, 
-                'fontSize': fontSize, 
-                'anchor': 'top', 
-                'attributes': TTSattributes,
-            };    
-            let letter = text.substr(i,1);
-            full["a" + i] = textToSVG.getSVG(letter, TTSoptions);
-        }
-        displayPreview(full);
-    });
-}
-function displayPreview(full){
-    let generatedCode = "";
-    Object.values(full).forEach(e => {
-        generatedCode += e;
-    });
-    document.getElementById('view__text-preview').innerHTML = generatedCode;
+window.update = function(){
+    svggenerator.generate(document.getElementById('view__text-input').value);
+    displayPreview(svggenerator.html);
     line();
-    codemirror.updateHTMLPreview(generatedCode, generatedCode);
-    codemirror.updateJSPreview(generatedCode, " ");
+    codemirror.updateHTMLPreview(svggenerator.html);
+    codemirror.updateJSPreview("");
+}
+function displayPreview(generated){
+    document.getElementById('view__text-preview').innerHTML = generated;
 }
 
 function line(){
@@ -59,5 +31,5 @@ function line(){
         delay: function(el, i) { return i * 250 },
         direction: 'alternate',
         loop: true
-    });      
+    });    
 }  
