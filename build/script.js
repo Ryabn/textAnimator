@@ -7,6 +7,7 @@ import { codemirror } from './codePreview.js';
 
 window.onload = function(){
     M.AutoInit();
+    animateLogo();
     codemirror.initCodePreview();
     svggenerator.generate(document.getElementById('text-input__form').value);
     displayPreview(svggenerator.html);
@@ -22,9 +23,20 @@ function displayPreview(generated){
     document.getElementById('view__text-preview').innerHTML = generated;
 }
 
+function animateLogo(){
+    var line = anime({
+        targets: '.logo path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1500,
+        delay: function(el, i) { return i * 250 },
+        direction: 'alternate',
+        loop: true
+    });   
+}
 function line(){
     var lineDrawing = anime({
-        targets: ' path',
+        targets: '#view__text-preview path' ,
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInOutSine',
         duration: 1500,

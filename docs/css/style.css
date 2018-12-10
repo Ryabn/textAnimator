@@ -23,6 +23,12 @@ body, html{
     left: 25vw;
     width: calc(75vw - 2vh);
 }
+.logo{
+    top: 2vh;
+    height: 8vh;
+    overflow: hidden;
+    text-align: center;
+}
 #view__text-input{
     height: 6vh;
     top: 13vh;
