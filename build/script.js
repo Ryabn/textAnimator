@@ -8,11 +8,11 @@ import { codemirror } from './codePreview.js';
 window.onload = function(){
     M.AutoInit();
     codemirror.initCodePreview();
-    // svggenerator.generate(document.getElementById('view__text-input').value);
+    svggenerator.generate(document.getElementById('text-input__form').value);
     displayPreview(svggenerator.html);
 };
 window.update = function(){
-    svggenerator.generate(document.getElementById('view__text-input').value);
+    svggenerator.generate(document.getElementById('text-input__form').value);
     displayPreview(svggenerator.html);
     line();
     codemirror.updateHTMLPreview(svggenerator.html);

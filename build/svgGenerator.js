@@ -34,7 +34,7 @@ function getOptions(options, index){
     }else{
         stroke = generatePastelColor();
         fill = 'none';
-        // fill='#00FF00';
+        fill='#151515';
     }
     let styles = {
         'user': {
