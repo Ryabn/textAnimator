@@ -7,7 +7,6 @@ const svggenerator = {
     'setStrokeWidth': setStrokeWidth,
     'setStrokeDashArray': setStrokeDashArray,
     'setStrokeDashOffset': setStrokeDashOffset,
-    // 'getOptons': getops,
     'html': ''
 };
 function getops(){
