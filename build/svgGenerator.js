@@ -64,7 +64,7 @@ function getOptions(options, index){
  * main called function
  * @param {} text 
  */
-function generate(text){
+function generate(text, callback){
     let font = getOptions(userOptions).user.font;
     TextToSVG.load(`fonts/${font}.ttf`, function(err, textToSVG) {
         let generated = "";
@@ -75,6 +75,7 @@ function generate(text){
             generated += textToSVG.getSVG(letter, styles.tts);
         }
         svggenerator.html = `<!-- Insert this SVG snippet into your html code -->${generated}`;
+        callback();
     });
 }
 

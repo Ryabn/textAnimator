@@ -9,23 +9,23 @@ window.onload = function(){
     M.AutoInit();
     animateLogo();
     codemirror.initCodePreview();
-    svggenerator.generate(document.getElementById('text-input__form').value);
-    displayPreview(svggenerator.html);
+    update();
 };
 window.updateOptions = function(){
     svggenerator.setFont(document.getElementById('font-selector').value);
     svggenerator.setFontSize(document.getElementById('font-size').value);
     svggenerator.setStrokeWidth(document.getElementById('stroke-width').value);
-    // svggenerator.getOptons();
     update();
 };
 window.update = function(){
-    svggenerator.generate(document.getElementById('text-input__form').value);
+    svggenerator.generate(document.getElementById('text-input__form').value, afterGen);
+};
+window.afterGen = function(){
     displayPreview(svggenerator.html);
     line();
     codemirror.updateHTMLPreview(svggenerator.html);
     codemirror.updateJSPreview("");
-}
+};
 function displayPreview(generated){
     document.getElementById('view__text-preview').innerHTML = generated;
 }
