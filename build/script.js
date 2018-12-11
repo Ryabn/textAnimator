@@ -12,6 +12,13 @@ window.onload = function(){
     svggenerator.generate(document.getElementById('text-input__form').value);
     displayPreview(svggenerator.html);
 };
+window.updateOptions = function(){
+    svggenerator.setFont(document.getElementById('font-selector').value);
+    svggenerator.setFontSize(document.getElementById('font-size').value);
+    svggenerator.setStrokeWidth(document.getElementById('stroke-width').value);
+    // svggenerator.getOptons();
+    update();
+};
 window.update = function(){
     svggenerator.generate(document.getElementById('text-input__form').value);
     displayPreview(svggenerator.html);
@@ -22,7 +29,6 @@ window.update = function(){
 function displayPreview(generated){
     document.getElementById('view__text-preview').innerHTML = generated;
 }
-
 function animateLogo(){
     var line = anime({
         targets: '.logo path',

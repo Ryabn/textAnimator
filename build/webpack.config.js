@@ -20,5 +20,5 @@ module.exports = {
         ]
     }]},
     mode: 'development',
-    'devtool': 'cheap-inline-module-source-map'
+    devtool: 'cheap-module-eval-source-map',
 };

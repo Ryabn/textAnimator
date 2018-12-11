@@ -7,11 +7,14 @@ const svggenerator = {
     'setStrokeWidth': setStrokeWidth,
     'setStrokeDashArray': setStrokeDashArray,
     'setStrokeDashOffset': setStrokeDashOffset,
+    // 'getOptons': getops,
     'html': ''
 };
-let fonts = ['SourceSansPro-Bold', 'Biryani-ExtraBold'];
+function getops(){
+    console.log(userOptions);
+}
 const userOptions = {
-    'font': fonts[0],
+    'font': 'SourceSansPro-Bold',
     'fontSize': 200,
     'hasColor': false,
     'strokeWidth': 5,
@@ -62,8 +65,8 @@ function getOptions(options, index){
  * @param {} text 
  */
 function generate(text){
-    let styles = getOptions(userOptions);
-    TextToSVG.load(`fonts/${styles.user.font}.ttf`, function(err, textToSVG) {
+    let font = getOptions(userOptions).user.font;
+    TextToSVG.load(`fonts/${font}.ttf`, function(err, textToSVG) {
         let generated = "";
         for(let i = 0; i < text.length; i++){
             let styles = getOptions(userOptions);

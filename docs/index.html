@@ -18,7 +18,7 @@
 
         <!-- Default font style for site -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- personal scripts -->
         <script src="./js/scripts.bundle.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -53,10 +53,29 @@
         </div>
         <div id="view__text-input" class="view view--left input-field" onkeyup="update();">
             <input id="text-input__form" type="text">
-            <label for="last_name" class="light-green-text text-accent-3">Animated Text</label>
+            <label for="last_name" class="light-green-text text-accent-3">Enter Text Here</label>
             </div>
         <div id="view__dropdown-styles" class="view view--left">
-
+            <div class="input-field">
+                <select id="font-selector">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="SourceSansPro-Bold">Source Sans Pro</option>
+                    <option value="Biryani-ExtraBold">Biryani</option>
+                </select>
+                <label>Select Font</label>
+            </div>
+            <p class="range-field">
+                <label>Font Size</label>
+                <input type="range" id="font-size" min="10" max="300" />
+            </p>
+            <p class="range-field">
+                <label>Stroke Width</label>
+                <input type="range" id="stroke-width" min="0" max="20" />
+            </p>
+            <button class="btn waves-effect waves-light purple" onclick="updateOptions();" name="action">Update
+                <i class="material-icons right">send</i>
+                </button>
+            </form>
         </div>
         <div id="view__text-preview" class="view view--right"></div>
         <div id="view__code-preview" class="view view--right">
